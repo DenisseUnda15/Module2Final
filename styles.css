@@ -57,7 +57,7 @@ p{
 
 .nav__row {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     
 }
 
@@ -794,12 +794,7 @@ padding: 2px 4px 4px 1px;
         width: 40px;
         height: 40px;
     }
-    .nav__link {
-       display: none;
-    }
-    .nav__link:nth-last-child(:last-child) {
-        display:block;
-    }
+   
     .h1 {
         font-size: 40px;
         text-align: center;
