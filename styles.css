@@ -40,7 +40,7 @@ h1{
 
 h3{
   color:  rgb(37, 37, 151);  
-  padding: 10px 0;
+  padding: 10px 0 0 12px;
   font-size: 14px;
   font-weight: bold;
 }
@@ -140,31 +140,38 @@ li {
     right: 0;
     bottom: 0;
     z-index: 100;
+    display: flex;
     justify-content: center;
     align-items: center;
-    visibility: hidden;
-    transition: opacity 300ms ease;
+    transition: opacity 400ms ease, transform 400ms ease;
+    transform: translateY(-100%);
     opacity: 0;
-    display: flex;
+    
 }
 
 .menu--open .menu__backdrop {
-    visibility: visible;
-    opacity: 1;
+     opacity: 1;
+     transform: translateY(0);
 
 }
 .menu--open {
     max-height: 100vh;
-    overflow-y: hidden;
-}
+   }
 .menu__links {
     display: flex;
     flex-direction: column;
     align-items: center;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 300ms ease, transform 300ms ease 100ms;
 }
-
+.menu--open .menu__links{
+    opacity: 1;
+    transform: translate(0);
+}
 .menu__list {
     padding: 12px;
+        
   }
 .menu__link{
     font-size: 28px;
@@ -211,6 +218,7 @@ li {
 .header__description--para{
     margin-bottom: 30px;
     font-size: 14px;
+
 }
 
 .header__description--btn{
@@ -345,6 +353,7 @@ text-align: left;
     justify-content: space-around;
     width:100%;
     max-width: 1200px;
+    padding: 10px;
  
 }
 
@@ -769,20 +778,20 @@ height: 400px;
    width: 20vw;
 }
 .fa-brands {
-    background-color:#fff;
-border-radius: 50px;
-border: 2px solid #242424;
-width: 25px;
-height: 25px;
-align-items: center;
+background-color:#fff;
+border-radius: 50%;
+font: 16px;
+border:none;
 text-align: center;
-padding: 2px 4px 4px 1px;
+align-content: center;
+width:26px;
+height: 26px;
 
 }
 
 /*Small Phones, large tablets*/
 
-@media(max-width:768px){
+@media(max-width:770px){
     .header__description{
         flex-direction: column;
     }
@@ -790,12 +799,32 @@ padding: 2px 4px 4px 1px;
         display: flex;
         flex-direction: column;
     }
-    .nav__logo--wrapper {
-        width: 40px;
-        height: 40px;
+    .nav__row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
     }
-   
-    .h1 {
+    .nav__row--logo {
+        flex-shrink: 0;
+        margin-right: 16px;
+    }
+    .nav__links {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 10px;
+    }
+
+   .nav__link{
+    font-size: 14px;
+    padding-right: 15px;
+   }
+
+   .btn__menu {
+    padding: 8px 20px;
+   }
+
+    h1 {
         font-size: 40px;
         text-align: center;
         padding:20px;
@@ -850,6 +879,9 @@ padding: 2px 4px 4px 1px;
         display: flex;
         flex-direction: column;
     }
+    .testimonial__container{
+        padding: 10px;
+    }
     .testimonial__img {
         padding: 20px;
         text-align: center;
@@ -858,24 +890,25 @@ padding: 2px 4px 4px 1px;
         margin: 20px 50px;
     }
     .footer__logo {
-        display: flex;
-        align-items: center;
+       flex-shrink: 0;
+      
     }
-    .footer__logo--wrapper {
-        width: 40px;
-        height: 40px;
-        }
+    
     .footer__logo--name {
         font-size: 14px;
-        width: 24vw;
-    }
+            }
     .footer__copyright--info {
         font-size: 14px;
     }
-
+    .footer__copyright--info{
+        width: 40vw;
+    }
+.footer__media {
+    flex-shrink: 0;
+}
    }
 
-@media (max-width:576px) {
+@media (max-width:600px) {
     h1{
         font-size: 26px;
         text-align: center;
@@ -888,9 +921,9 @@ padding: 2px 4px 4px 1px;
     .nav__links {
         display: none;
     }
-    .nav__logo--wrapper {
-    width: 40px;
-    height: 40px;
+    .nav__row--logo {
+        flex-shrink: 0;
+        margin-right: 16px;
     }
     .btn__bar {
         display: block;
@@ -1002,29 +1035,28 @@ padding: 2px 4px 4px 1px;
         align-items: center;
     }
     .footer__logo {
-        width: 50%;
+        flex-shrink: 0;
+        text-align: center;
+        max-width: 100%;
         display: flex;
-        justify-content: center;
-        font-size: 14px;
+        align-items: center;
     }
     .footer__copyright--info {
         padding-right: 0;
         padding-bottom: 10px ;
-        width: 60vw;
         font-size: 12px;
+        text-align: center;
     
     }
-    .footer__logo--wrapper {
-        width: 50px;
-        height: 50px;
-
-    }
-    .footer__logo--name {
-        width: 30vw;
-    }
+    
     .footer__media {
         display: flex;
         align-items: center;
-        justify-content: center;
-    }
+        justify-content: space-between;
+   }
+   .fa-brands {
+    font-size: 12px;
+    width: 16px;
+    height: 16px;
+   }
 }
